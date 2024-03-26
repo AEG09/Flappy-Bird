@@ -1,4 +1,4 @@
-function Horno (x, y, board, randomHeight) {
+function Horno (x, y, board, randomHeight, alturaParejaTubo) {
     let self = this
     this.x = x
     this.y = y
@@ -8,15 +8,25 @@ function Horno (x, y, board, randomHeight) {
     // this.directionY = 0
     this.speed = 20 
     
-    this.sprite = document.createElement('div')
-     
-    this.insertHorno = function () {
-        this.sprite.setAttribute('id', 'horno')
-        this.sprite.style.top = this.y + 'px'
-        this.sprite.style.left = this.x + 'px'
-        this.sprite.style.height = this.height + 'px'
-        board.appendChild(this.sprite)
+    let tuboSuperior = document.createElement('div')
+    this.insertHornoSup = function () {
+        tuboSuperior.setAttribute('class', 'horno')
+        tuboSuperior.style.top = this.y + 'px'
+        tuboSuperior.style.left = this.x + 'px'
+        tuboSuperior.style.height = this.height + 'px'
+        board.appendChild(tuboSuperior)
     }
+
+    let tuboInferior = document.createElement('div')
+    this.insertHornoInf = function () {
+        tuboInferior.setAttribute('class', 'horno')
+        tuboInferior.style.top = ( self.height + 40) + 'px'
+        tuboInferior.style.left = this.x + 'px'
+        tuboInferior.style.height = alturaParejaTubo + 'px'
+        board.appendChild(tuboInferior)
+    }
+
+    
     this.checkCollisionObject = function(){
        if (self.x < pollo.x + (pollo.width * 1.60) &&
        self.y < pollo.y + (pollo.height * 1.60) &&

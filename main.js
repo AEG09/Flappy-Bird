@@ -6,10 +6,11 @@ var timerId2;
 
 function startGame () {
     pollo.insertPollo();
-    horno.insertHorno();
+    horno.insertHornoSup();
+    horno.insertHornoInf();
     crearTubos()
 
-    timerId2 = setInterval(horno.move, 100)
+    // timerId2 = setInterval(horno.move, 100)
     timerIdTubos = setInterval(crearTubos, 500)   
 }
 var timerId;
@@ -17,19 +18,21 @@ var timerId;
 function crearTubos(){
     let randomCoordx = Math.floor(Math.random()* 10 * 50)
     let randomHeight = (Math.floor(Math.random()* 501) + 120)
+    let alturaParejaTubo = (800 - randomHeight) - 100;
+ 
 
-    
-
-    var horno = new Horno(randomCoordx, 0, board, randomHeight)
-    horno.insertHorno()
+    var horno = new Horno(randomCoordx, 0, board, randomHeight, alturaParejaTubo)
+    horno.insertHornoSup();
+    horno.insertHornoInf();
     hornosArray.push(horno)
 
     /* 
     var horno = new Horno(randomCoordy, 600, board, hornosArray)
     horno.insertHorno()
     hornosArray.push(horno)
-    console.log(hornosArray) */
-}
+    console.log(hornosArray) 
+    */
+} 
 
 window.addEventListener("keydown", function(e) {
     switch(e.key){
