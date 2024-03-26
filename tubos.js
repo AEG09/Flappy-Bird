@@ -39,12 +39,16 @@ function Horno (x, y, board, randomHeight, alturaParejaTubo) {
         clearInterval(timerId2)
         }
     }
+    
     this.move = function(){
-        let newCoordX = self.x + self.speed * self.direction;
         horno.checkCollisionObject()
+        let newCoordX = self.x + self.speed * self.direction;
+        if (newCoordX <= 700 && newCoordX >= 0){
+            self.x = newCoordX
+            self.sprite.style.right = self.x + "px"
+        }
         
-
-        self.x = newCoordX;            
-        self.sprite.style.left = self.x + 'px';
     }
+
+
 }
