@@ -16,8 +16,11 @@ var timerId;
 
 function crearTubos(){
     let randomCoordx = Math.floor(Math.random()* 10 * 50)
+    let randomHeight = (Math.floor(Math.random()* 501) + 120)
 
-    var horno = new Horno(randomCoordx, 0, board, hornosArray)
+    
+
+    var horno = new Horno(randomCoordx, 0, board, randomHeight)
     horno.insertHorno()
     hornosArray.push(horno)
 

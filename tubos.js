@@ -1,9 +1,9 @@
-function Horno (x, y, board) {
+function Horno (x, y, board, randomHeight) {
     let self = this
     this.x = x
     this.y = y
     this.width = 100
-    this.height = 100
+    this.height = randomHeight
     this.direction = -1
     // this.directionY = 0
     this.speed = 20 
@@ -14,6 +14,7 @@ function Horno (x, y, board) {
         this.sprite.setAttribute('id', 'horno')
         this.sprite.style.top = this.y + 'px'
         this.sprite.style.left = this.x + 'px'
+        this.sprite.style.height = this.height + 'px'
         board.appendChild(this.sprite)
     }
     this.checkCollisionObject = function(){
