@@ -20,7 +20,7 @@ function Pollo (x, y, board) {
 
     this.move = function(){
         let newCoordY = self.y + self.speed * self.direction;
-        horno.checkCollision()
+
         if(newCoordY <= 800 || newCoordY >= 0){
             self.y = newCoordY;            
             self.sprite.style.top = self.y + 'px';
