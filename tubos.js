@@ -41,14 +41,33 @@ function Horno (x, y, board, randomHeight, alturaParejaTubo) {
     }
     
     this.move = function(){
-        horno.checkCollisionObject()
+        // horno.checkCollisionObject()
+        console.log(self.x + "!!" + self.y)
         let newCoordX = self.x + self.speed * self.direction;
-        if (newCoordX <= 700 && newCoordX >= 0){
-            self.x = newCoordX
-            self.sprite.style.right = self.x + "px"
-        }
+        console.log(newCoordX)
+//        if (newCoordX <= 700 && newCoordX >= 0){
+            tuboInferior.x = newCoordX
+            tuboInferior.style.right = tuboInferior.x + "px"
+            tuboSuperior.style.right = tuboSuperior.x + "px"
+ //       }
+        console.log(tuboInferior.x + "px")
         
     }
 
+    
+
 
 }
+/*
+ this.move = function(){
+        let newCoordY = self.y + self.speed * self.direction;
+
+        if(newCoordY <= 800 || newCoordY >= 0){
+            self.y = newCoordY;            
+            self.sprite.style.top = self.y + 'px';
+       };
+       if(newCoordY >= 750) {
+        clearInterval(timerId)
+       } 
+    }
+    */    
