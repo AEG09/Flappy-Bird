@@ -16,7 +16,7 @@ function Horno (x, y, board, randomHeight, alturaParejaTubo) {
         tuboSuperior.style.height = this.height + 'px'
         board.appendChild(tuboSuperior)
     }
-
+    
     let tuboInferior = document.createElement('div')
     this.insertHornoInf = function () {
         tuboInferior.setAttribute('class', 'horno')
@@ -27,6 +27,7 @@ function Horno (x, y, board, randomHeight, alturaParejaTubo) {
     }
 
     
+
     this.checkCollisionObject = function(){
        if (tuboSuperior.x < pollo.x + (pollo.width * 1.60) &&
        tuboSuperior.y < pollo.y + (pollo.height * 1.60) &&
@@ -37,7 +38,9 @@ function Horno (x, y, board, randomHeight, alturaParejaTubo) {
         clearInterval(timerId2)
         }
     }
+    
     this.move = function(){
+        horno.checkCollisionObject()
         let newCoordX = self.x + self.speed * self.direction;
         horno.checkCollisionObject()
         self.x = newCoordX;            

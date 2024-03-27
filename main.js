@@ -11,6 +11,13 @@ function startGame () {
     pollo.insertPollo();
     horno.insertHornoSup();
     horno.insertHornoInf();
+    timerId2 = setInterval(loop, 2000)
+    
+}
+
+
+function loop (){
+    horno.move()
     crearTubos()
     timerId2 = setInterval(horno.move, 100)
     timerIdTubos = setInterval(crearTubos, 5000)   
@@ -28,6 +35,7 @@ function crearTubos(){
     horno.insertHornoSup();
     horno.insertHornoInf();
     hornosArray.push(horno)
+    console.log(hornosArray)
 
     /* 
     var horno = new Horno(randomCoordy, 600, board, hornosArray)
