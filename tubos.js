@@ -20,7 +20,7 @@ function Horno (x, y, board, randomHeight, alturaParejaTubo) {
     let tuboInferior = document.createElement('div')
     this.insertHornoInf = function () {
         tuboInferior.setAttribute('class', 'horno')
-        tuboInferior.style.top = ( self.height + 40) + 'px'
+        tuboInferior.style.top = ( self.height + 100) + 'px'
         tuboInferior.style.left = this.x + 'px'
         tuboInferior.style.height = alturaParejaTubo + 'px'
         board.appendChild(tuboInferior)
@@ -28,12 +28,11 @@ function Horno (x, y, board, randomHeight, alturaParejaTubo) {
 
     
     this.checkCollisionObject = function(){
-       if (self.x < pollo.x + (pollo.width * 1.60) &&
-       self.y < pollo.y + (pollo.height * 1.60) &&
-       self.x + self.width > pollo.x &&
-       self.y + self.height > pollo.y) {
-   
-                console.log("Auch!")
+       if (tuboSuperior.x < pollo.x + (pollo.width * 1.60) &&
+       tuboSuperior.y < pollo.y + (pollo.height * 1.60) &&
+       tuboSuperior.x + tuboSuperior.width > pollo.x &&
+       tuboSuperior.y + tuboSuperior.height > pollo.y) {
+       console.log("Auch!")
         clearInterval(timerId)
         clearInterval(timerId2)
         }
@@ -41,9 +40,10 @@ function Horno (x, y, board, randomHeight, alturaParejaTubo) {
     this.move = function(){
         let newCoordX = self.x + self.speed * self.direction;
         horno.checkCollisionObject()
-        
-
         self.x = newCoordX;            
-        self.sprite.style.left = self.x + 'px';
+        tuboSuperior.style.left = self.x + 'px';
+        tuboInferior.style.left = self.x + 'px';
     }
+    this.timerId2 = setInterval(this.move, 100)
+    
 }

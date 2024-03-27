@@ -1,6 +1,9 @@
 let board = document.getElementById('board');
 let pollo = new Pollo(200, 400, board)
-let horno = new Horno(800, 600, board)
+//let horno = new Horno(800, 700, board)
+let randomHeight = (Math.floor(Math.random()* 501) + 120)
+let alturaParejaTubo = (800 - randomHeight) - 100;
+let horno = new Horno(701, 0, board, randomHeight, alturaParejaTubo)
 let hornosArray = []
 var timerId2;
 
@@ -9,19 +12,19 @@ function startGame () {
     horno.insertHornoSup();
     horno.insertHornoInf();
     crearTubos()
-
-    // timerId2 = setInterval(horno.move, 100)
-    timerIdTubos = setInterval(crearTubos, 500)   
+    timerId2 = setInterval(horno.move, 100)
+    timerIdTubos = setInterval(crearTubos, 5000)   
 }
 var timerId;
 
 function crearTubos(){
-    let randomCoordx = Math.floor(Math.random()* 10 * 50)
+    //let randomCoordx = Math.floor(Math.random()* 10 * 50)
+    let randomCoordx = 701
     let randomHeight = (Math.floor(Math.random()* 501) + 120)
     let alturaParejaTubo = (800 - randomHeight) - 100;
  
 
-    var horno = new Horno(randomCoordx, 0, board, randomHeight, alturaParejaTubo)
+    let horno = new Horno(randomCoordx, 0, board, randomHeight, alturaParejaTubo)
     horno.insertHornoSup();
     horno.insertHornoInf();
     hornosArray.push(horno)
